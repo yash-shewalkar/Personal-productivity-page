@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+        .nanum-gothic-regular {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+      body {
+        background-color: #121212;
+        color: #ffffff;
+        font-family: "Nanum Gothic", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .card {
+        background: #1e1e1e;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        height: fit-content;
+      }
+
+      .textarea {
+        resize: none;
+        border: none;
+        background-color: #2e2e2e;
+        color: #ffffff;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        font-weight: 600;
+        font-family: 'Nanum Gothic';
+      }
+      .textarea1 {
+        resize: none;
+        border: none;
+        background-color: #2e2e2e;
+        color: #ffffff;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        font-size: x-large;
+        font-weight: 600;
+        font-family: 'Nanum Gothic';
+        text-align: center;
+      }
+
+      .btn {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+      }
+
+      .input-group input {
+        background-color: #2e2e2e;
+        color: #ffffff;
+        border: none;
+        border-radius: 10px 0 0 10px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      .input-group button {
+        background-color: #4caf50;
+        border: none;
+        border-radius: 0 10px 10px 0;
+        padding: 10px;
+        color: #ffffff;
+      }
+
+      .input-group button:hover {
+        background-color: #45a049;
+      }
+
+      .list-group-item {
+        background-color: #2e2e2e;
+        color: #ffffff;
+        border: none;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      span {
+        font-size: x-large;
+        font-weight: 500;
+      }
+
+      .list-group-item button {
+        background-color: #e53935;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        color: #ffffff;
+      }
+
+      .list-group-item button:hover {
+        background-color: #d32f2f;
+      }
+
+      .quote-container {
+        background-color: #2e2e2e;
+        border-radius: 10px;
+        padding: 20px;
+        font-size: 1.5rem;
+        position: relative;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .quote-container::before {
+        content: "“";
+        font-size: 3rem;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: #4caf50;
+      }
+
+      .quote-container::after {
+        content: "”";
+        font-size: 3rem;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: #4caf50;
+      }
+
+      .quote-author {
+        display: block;
+        margin-top: 10px;
+        font-size: 1rem;
+        color: #aaaaaa;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .header div {
+        flex: 2;
+        text-align: center;
+        width: 1%;
+        font-size: large;
+      }
+
+      .quote-section {
+        grid-column: span 3;
+      }
+
+      .todo-goals {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      @media (min-width: 1024px) {
+        .todo-goals {
+          flex-direction: row;
+        }
+      }
+
+      .todo-goals > div {
+        flex: 1;
+      }
+
+      .container {
+        width: 75%;
+      }
+
+      .flex-grow-1 {
+        flex-grow: 1;
+      }
+
+      #time {
+        flex: 2;
+        text-align: center;
+      }
+      .autoresizing {
+        display: block;
+        overflow: hidden;
+        resize: none;
+      }
+      .todo-checkbox {
+        /* Style the checkbox (appearance, size, etc.) */
+        margin-right: 10px;
+        height: 1.2rem;
+        width: 1.2rem;
+      }
+      .todo-checkbox:hover {
+        cursor: pointer;
+      }
+
+      .list-group-item.completed {
+        text-decoration: line-through;
+        color: #45a049;
+        /* Optional styles for completed items (color, opacity, etc.) */
+      }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container mx-auto p-4">
+      <div class="header">
+        <div id="day">
+          <h2>Day:</h2>
+        </div>
+        <div id="date">
+          <h2>Date:</h2>
+        </div>
+        <div id="time">
+          <h2>Time:</h2>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="card p-4 quote-section">
+          <h2 class="text-xl font-bold mb-2">Quote</h2>
+          <div class="quote-container">
+            <textarea
+              class="form-control textarea1"
+              id="quote-input"
+              placeholder="Enter your motivational quote here..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="todo-goals col-span-1 lg:col-span-3">
+          <div class="card p-4">
+            <h2 class="text-xl font-bold mb-2">To-Do List</h2>
+            <ul class="list-group flex-grow-1 mb-2" id="todo-list"></ul>
+            <div class="input-group flex">
+              <input
+                type="text"
+                id="todo-input"
+                class="form-control flex-grow p-2"
+                placeholder="Add new task..."
+                onkeypress="handleKeyPress(event)"
+              />
+              <button class="btn p-2" type="button" onclick="addTodo()">
+                Add
+              </button>
+            </div>
+          </div>
+          <div class="card p-4 flex-grow-1">
+            <h2 class="text-xl font-bold mb-2">Goals</h2>
+            <div>
+              <textarea
+                id="goals-input"
+                class="card p-4 form-control textarea autoresizing"
+                placeholder="Write your goals here..."
+                style="resize: none"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        loadQuote();
+        loadGoals();
+        loadTodos();
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+      });
+
+      function updateDateTime() {
+        const now = new Date();
+        const dayNames = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        const day = dayNames[now.getDay()];
+        const date = now.toLocaleDateString();
+        const time = now.toLocaleTimeString();
+
+        document.getElementById("day").innerHTML = `<h2>Day: ${day}</h2>`;
+        document.getElementById("date").innerHTML = `<h2>Date: ${date}</h2>`;
+        document.getElementById("time").innerHTML = `<h2>Time: ${time}</h2>`;
+      }
+
+      function saveQuote() {
+        const quote = document.getElementById("quote-input").value;
+        localStorage.setItem("quote", quote);
+      }
+
+      function displayQuote() {
+        const savedQuote = localStorage.getItem("quote");
+        document.getElementById("quote-input").value = savedQuote || "";
+      }
+
+      function saveGoals() {
+        const goals = document.getElementById("goals-input").value;
+        localStorage.setItem("goals", goals);
+      }
+
+      function displayGoals() {
+        const savedGoals = localStorage.getItem("goals") || "";
+        document.getElementById("goals-input").value = savedGoals;
+
+        const savedHeight = localStorage.getItem("goalsTextareaHeight");
+        if (savedHeight) {
+          document.getElementById("goals-input").style.height = savedHeight;
+        }
+      }
+
+      function addTodo() {
+        const todoInput = document.getElementById("todo-input");
+        const todo = todoInput.value.trim();
+        if (todo) {
+          let todos = JSON.parse(localStorage.getItem("todos")) || [];
+          todos.push({ text: todo, completed: false });
+          localStorage.setItem("todos", JSON.stringify(todos));
+          displayTodos();
+          todoInput.value = "";
+        }
+      }
+
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          addTodo();
+        }
+      }
+
+      function displayTodos() {
+        const todos = JSON.parse(localStorage.getItem("todos")) || [];
+        const todoList = document.getElementById("todo-list");
+        todoList.innerHTML = "";
+        todos.forEach((todo, index) => {
+          const listItem = document.createElement("li");
+          listItem.className = "list-group-item";
+          if (todo.completed) {
+            listItem.classList.add("completed");
+          }
+
+          // Add checkbox input
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.classList.add("todo-checkbox");
+          checkbox.checked = todo.completed;
+          checkbox.addEventListener("change", function () {
+            toggleTodoCompletion(index);
+          });
+          listItem.appendChild(checkbox);
+
+          const todoSpan = document.createElement("span");
+          todoSpan.innerText = todo.text;
+          listItem.appendChild(todoSpan);
+
+          const deleteButton = document.createElement("button");
+          deleteButton.innerText = "Delete";
+          deleteButton.onclick = () => deleteTodo(index);
+          listItem.appendChild(deleteButton);
+
+          todoList.appendChild(listItem);
+        });
+      }
+
+      function toggleTodoCompletion(index) {
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        todos[index].completed = !todos[index].completed;
+        localStorage.setItem("todos", JSON.stringify(todos));
+        displayTodos();
+      }
+
+      function deleteTodo(index) {
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        todos.splice(index, 1);
+        localStorage.setItem("todos", JSON.stringify(todos));
+        displayTodos();
+      }
+
+      function loadQuote() {
+        displayQuote();
+        document
+          .getElementById("quote-input")
+          .addEventListener("input", saveQuote);
+      }
+
+      function loadGoals() {
+        displayGoals();
+        document
+          .getElementById("goals-input")
+          .addEventListener("input", saveGoals);
+      }
+
+      function loadTodos() {
+        displayTodos();
+      }
+    </script>
+    <script type="text/javascript">
+        // Function to handle text area resizing and empty textarea height
+        $(".autoresizing").on("input", function () {
+          const newHeight = this.scrollHeight + "px"; // Calculate new height
+          this.style.height = newHeight; // Set height to newHeight
+      
+          // Check if textarea is empty
+          if (this.value.length === 0) {
+            this.style.height = "auto"; // Set height to auto or specify a default height like "100px"
+          }
+      
+          localStorage.setItem("goalsTextareaHeight", this.style.height); // Save height to localStorage
+        });
+      
+        // Additional function to set initial height when page loads
+        $(document).ready(function () {
+          const goalsTextarea = document.getElementById("goals-input");
+          if (goalsTextarea.value.length === 0) {
+            goalsTextarea.style.height = "auto"; // Set initial height to auto or a default value
+          } else {
+            goalsTextarea.style.height = localStorage.getItem("goalsTextareaHeight") || "auto";
+          }
+        });
+      </script>
+      
+  </body>
+</html>
